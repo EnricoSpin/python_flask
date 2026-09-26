@@ -1,18 +1,23 @@
-from flask import Flask 
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-	return "<h1>Aprendendo Python e Flask</h1>"
+	return render_template("home.html")
 
-@app.route("/sobre")
-def sobre():
-	return "<h1>Este é um mini curso sobre Python e Flask</h1>"
 
-@app.route("/contatos")
-def contatos():
-	return "<h1>Contatos: Eu</h1>"
+@app.route("/about")
+def about():
+	return render_template("about.html")
+
+@app.route("/services")
+def services():
+	return render_template("services.html")
+
+@app.route("/contact")
+def contact():
+	return render_template("contact.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)
